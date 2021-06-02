@@ -147,3 +147,5 @@ tyrion.morir("Muerto");
 /* console.log(jaime.estado); */
 
 console.log(joffrey.comunicar());
+
+const personajes = [joffrey, jaime, daenerys, tyrion, bronn];
