@@ -17,15 +17,15 @@ class Personaje {
     this.estado = estado;
     this.familia = familia;
   }
-  comunicar(mensaje) {
-    return mensaje;
+  comunicar() {
+    return this.mensaje;
   }
   morir(estado) {
     this.estado = estado;
   }
 }
 
-class rey extends Personaje {
+class Rey extends Personaje {
   anyosReinado;
   mensaje;
 
@@ -33,10 +33,9 @@ class rey extends Personaje {
     super(nombre, anyos, serie, tipo, estado, familia);
     this.anyosReinado = anyosReinado;
     this.mensaje = "Vais a morir todos";
-    /*  super.comunicar(mensaje); */
   }
 }
-class luchador extends Personaje {
+class Luchador extends Personaje {
   armaQueUsa;
   destreza;
   mensaje;
@@ -55,10 +54,9 @@ class luchador extends Personaje {
     this.armaQueUsa = armaQueUsa;
     this.destreza = destreza;
     this.mensaje = "Primero pego y luego pregunto";
-    /*  super.comunicar(mensaje); */
   }
 }
-class asesor extends Personaje {
+class Asesor extends Personaje {
   personajeAsesorado;
   mensaje;
 
@@ -66,10 +64,9 @@ class asesor extends Personaje {
     super(nombre, anyos, serie, tipo, estado, familia);
     this.personajeAsesorado = personajeAsesorado;
     this.mensaje = "No sé por qué, pero creo que voy a morir pronto";
-    /*  super.comunicar(mensaje); */
   }
 }
-class escudero extends Personaje {
+class Escudero extends Personaje {
   personajeServido;
   gradoPelotismo;
   mensaje;
@@ -88,11 +85,10 @@ class escudero extends Personaje {
     this.personajeServido = personajeServido;
     this.gradoPelotismo = gradoPelotismo;
     this.mensaje = "Soy un loser";
-    /*  super.comunicar(mensaje); */
   }
 }
 
-const joffrey = new rey(
+const joffrey = new Rey(
   "joffrey baratheon",
   34,
   "game of Thrones",
@@ -101,27 +97,30 @@ const joffrey = new rey(
   "lannister",
   700
 );
-const jaime = new luchador(
+
+const jaime = new Luchador(
   "jaime lannister",
   83,
   "game of Thrones",
   "luchador",
   "vivo",
   "lannister",
-  "pintalabios-pistola"
+  "pintalabios-pistola",
   8
 );
-const daenerys = new luchadora(
+
+const daenerys = new Luchador(
   "daenerys targaryen",
   32,
   "game of Thrones",
   "luchador",
   "vivo",
   "targaryen",
-  "pistola armónica"
+  "pistola armónica",
   6
 );
-const tyrion = new asesor(
+
+const tyrion = new Asesor(
   "tyrion lannister",
   54,
   "game of Thrones",
@@ -130,13 +129,21 @@ const tyrion = new asesor(
   "Lannister",
   "daenerys"
 );
-const bronn = new escudero(
+
+const bronn = new Escudero(
   "bronn",
   43,
   "game of Thrones",
   "escudero",
   "vivo",
   "Tarradellas",
-  "jaime"
+  "jaime",
   10
 );
+
+jaime.morir("Muerto");
+tyrion.morir("Muerto");
+// Mirar si esta muerto
+/* console.log(jaime.estado); */
+
+console.log(joffrey.comunicar());
