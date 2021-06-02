@@ -173,6 +173,43 @@ const mensajesClasePersonaje = (personajes, tipoPersonaje) => {
 
 mensajesClasePersonaje(personajes, "luchador");
 
+
+console.log(mensajePersonaje);
+
+// Saca un resumen por consola con los personajes agrupados por tipo, que los personajes vayan ordenados por edad, de menor a mayor.
+
+const personajesPorTipo = (personajes) =>
+  personajes.reduce((acumulador, personaje) => {
+    const { tipo } = personaje;
+    const subResultado = acumulador.find(
+      (personaje) => personaje.tipo === tipo
+    );
+    if (subResultado) {
+      subResultado.personajes.push(personaje);
+      return acumulador;
+    } else {
+      return [
+        ...acumulador,
+        {
+          tipo,
+          personajes: [personaje],
+        },
+      ];
+    }
+  }, []);
+
+const personajesOrdenados = (personajesPorTipo) => {
+  const personajesOrdenadosEdad = [...personajesPorTipo];
+  for (const personaje of personajesOrdenadosEdad) {
+    personaje.personajes.sort(
+      ({ edad: edad1 }, { edad: edad2 }) => edad1 - edad2
+    );
+  }
+  return personajesOrdenadosEdad;
+};
+
+console.log(personajesOrdenados(personajesPorTipo(personajes)));
+
 /* PARTE EXTRA EJERCICIO (profesor Salva): hacer una función que aproveche la función del punto 4
 y atomaticamente le pase los tipos de personajes sin tener que hardcorearlos */
 
