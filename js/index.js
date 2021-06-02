@@ -173,4 +173,18 @@ const mensajesClasePersonaje = (personajes, tipoPersonaje) => {
 
 mensajesClasePersonaje(personajes, "luchador");
 
-// Recorrer array mensajes e imprimir por consola
+/* PARTE EXTRA EJERCICIO (profesor Salva): hacer una función que aproveche la función del punto 4
+y atomaticamente le pase los tipos de personajes sin tener que hardcorearlos */
+
+const mensajePersonajeTipo = (personajes) => {
+  const arrayTipos = personajes.map(({ tipo }) => tipo);
+  const arrayTiposFiltrados = arrayTipos.filter(
+    (item, index) => arrayTipos.indexOf(item) === index
+  );
+  console.log(arrayTiposFiltrados);
+  for (const tipo of arrayTiposFiltrados) {
+    mensajesClasePersonaje(personajes, tipo);
+  }
+};
+
+/* mensajePersonajeTipo(personajes); */
