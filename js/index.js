@@ -173,9 +173,6 @@ const mensajesClasePersonaje = (personajes, tipoPersonaje) => {
 
 mensajesClasePersonaje(personajes, "luchador");
 
-
-console.log(mensajePersonaje);
-
 // Saca un resumen por consola con los personajes agrupados por tipo, que los personajes vayan ordenados por edad, de menor a mayor.
 
 const personajesPorTipo = (personajes) =>
