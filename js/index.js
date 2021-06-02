@@ -159,8 +159,18 @@ const seriePersonajes = personajes
 
 console.log(seriePersonajes);
 
+// Recoger Mensajes de personajes
+
+const mensajesClasePersonaje = (personajes, tipoPersonaje) => {
+  const mensajePersonaje = [];
+  for (const personaje of personajes) {
+    if (personaje.tipo === tipoPersonaje) {
+      mensajePersonaje.push(personaje.mensaje);
+    }
+  }
+  console.log(mensajePersonaje);
+};
+
+mensajesClasePersonaje(personajes, "luchador");
+
 // Recorrer array mensajes e imprimir por consola
-
-const mensajePersonaje = personajes.map(({ mensaje }) => mensaje);
-
-console.log(mensajePersonaje);
