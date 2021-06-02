@@ -2,9 +2,9 @@
 /* eslint-disable max-classes-per-file */
 
 class Personaje {
+  nombre;
   tipo;
   serie;
-  nombre;
   edad;
   estado;
   familia;
@@ -148,4 +148,13 @@ tyrion.morir("Muerto");
 
 console.log(joffrey.comunicar());
 
+// Array de personajes
 const personajes = [joffrey, jaime, daenerys, tyrion, bronn];
+
+// Imprimir nombre de la serie
+
+const seriePersonajes = personajes
+  .map(({ serie }) => serie)
+  .filter((serie, index, series) => series.indexOf(serie) === index);
+
+console.log(seriePersonajes);
