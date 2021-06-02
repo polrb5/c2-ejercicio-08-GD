@@ -158,3 +158,9 @@ const seriePersonajes = personajes
   .filter((serie, index, series) => series.indexOf(serie) === index);
 
 console.log(seriePersonajes);
+
+// Recorrer array mensajes e imprimir por consola
+
+const mensajePersonaje = personajes.map(({ mensaje }) => mensaje);
+
+console.log(mensajePersonaje);
