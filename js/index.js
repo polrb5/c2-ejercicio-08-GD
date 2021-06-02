@@ -25,7 +25,7 @@ class Personaje {
   }
 }
 
-class Rey extends Personaje {
+class rey extends Personaje {
   anyosReinado;
   mensaje;
 
@@ -92,14 +92,51 @@ class escudero extends Personaje {
   }
 }
 
-const joffrey = new Rey(
-  "joffrey Baratheon",
+const joffrey = new rey(
+  "joffrey baratheon",
   34,
-  "Game of Thrones",
-  "Rey",
-  "Vivo",
-  "Lannister",
+  "game of Thrones",
+  "rey",
+  "vivo",
+  "lannister",
   700
 );
-console.log(joffrey);
-console.log(joffrey.comunicar("hola"));
+const jaime = new luchador(
+  "jaime lannister",
+  83,
+  "game of Thrones",
+  "luchador",
+  "vivo",
+  "lannister",
+  "pintalabios-pistola"
+  8
+);
+const daenerys = new luchadora(
+  "daenerys targaryen",
+  32,
+  "game of Thrones",
+  "luchador",
+  "vivo",
+  "targaryen",
+  "pistola armónica"
+  6
+);
+const tyrion = new asesor(
+  "tyrion lannister",
+  54,
+  "game of Thrones",
+  "asesor",
+  "vivo",
+  "Lannister",
+  "daenerys"
+);
+const bronn = new escudero(
+  "bronn",
+  43,
+  "game of Thrones",
+  "escudero",
+  "vivo",
+  "Tarradellas",
+  "jaime"
+  10
+);
