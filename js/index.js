@@ -24,7 +24,6 @@ class Personaje {
     this.estado = estado;
   }
 }
-
 class Rey extends Personaje {
   anyosReinado;
   mensaje;
@@ -52,10 +51,11 @@ class Luchador extends Personaje {
   ) {
     super(nombre, anyos, serie, tipo, estado, familia);
     this.armaQueUsa = armaQueUsa;
-    this.destreza = destreza;
+    this.destreza = Math.min(10, Math.max(0, destreza));
     this.mensaje = "Primero pego y luego pregunto";
   }
 }
+
 class Asesor extends Personaje {
   personajeAsesorado;
   mensaje;
@@ -83,7 +83,7 @@ class Escudero extends Personaje {
   ) {
     super(nombre, anyos, serie, tipo, estado, familia);
     this.personajeServido = personajeServido;
-    this.gradoPelotismo = gradoPelotismo;
+    this.gradoPelotismo = Math.min(10, Math.max(0, gradoPelotismo));
     this.mensaje = "Soy un loser";
   }
 }
