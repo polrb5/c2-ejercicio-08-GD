@@ -4,15 +4,14 @@
 class Personaje {
   nombre;
   tipo;
-  serie;
+  serie = "Game of Thrones";
   edad;
   estado;
   familia;
 
-  constructor(nombre, anyos, serie, tipo, estado, familia) {
+  constructor(nombre, anyos, tipo, estado, familia) {
     this.nombre = nombre;
     this.edad = anyos;
-    this.serie = serie;
     this.tipo = tipo;
     this.estado = estado;
     this.familia = familia;
@@ -24,12 +23,13 @@ class Personaje {
     this.estado = estado;
   }
 }
+
 class Rey extends Personaje {
   anyosReinado;
   mensaje;
 
-  constructor(nombre, anyos, serie, tipo, estado, familia, anyosReinado) {
-    super(nombre, anyos, serie, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, estado, familia, anyosReinado) {
+    super(nombre, anyos, tipo, estado, familia);
     this.anyosReinado = anyosReinado;
     this.mensaje = "Vais a morir todos";
   }
@@ -39,17 +39,8 @@ class Luchador extends Personaje {
   destreza;
   mensaje;
 
-  constructor(
-    nombre,
-    anyos,
-    serie,
-    tipo,
-    estado,
-    familia,
-    armaQueUsa,
-    destreza
-  ) {
-    super(nombre, anyos, serie, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, estado, familia, armaQueUsa, destreza) {
+    super(nombre, anyos, tipo, estado, familia);
     this.armaQueUsa = armaQueUsa;
     this.destreza = Math.min(10, Math.max(0, destreza));
     this.mensaje = "Primero pego y luego pregunto";
@@ -60,8 +51,8 @@ class Asesor extends Personaje {
   personajeAsesorado;
   mensaje;
 
-  constructor(nombre, anyos, serie, tipo, estado, familia, personajeAsesorado) {
-    super(nombre, anyos, serie, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, estado, familia, personajeAsesorado) {
+    super(nombre, anyos, tipo, estado, familia);
     this.personajeAsesorado = personajeAsesorado;
     this.mensaje = "No sé por qué, pero creo que voy a morir pronto";
   }
@@ -74,14 +65,13 @@ class Escudero extends Personaje {
   constructor(
     nombre,
     anyos,
-    serie,
     tipo,
     estado,
     familia,
     personajeServido,
     gradoPelotismo
   ) {
-    super(nombre, anyos, serie, tipo, estado, familia);
+    super(nombre, anyos, tipo, estado, familia);
     this.personajeServido = personajeServido;
     this.gradoPelotismo = Math.min(10, Math.max(0, gradoPelotismo));
     this.mensaje = "Soy un loser";
@@ -91,7 +81,6 @@ class Escudero extends Personaje {
 const joffrey = new Rey(
   "joffrey baratheon",
   34,
-  "game of Thrones",
   "rey",
   "vivo",
   "lannister",
@@ -101,7 +90,6 @@ const joffrey = new Rey(
 const jaime = new Luchador(
   "jaime lannister",
   83,
-  "game of Thrones",
   "luchador",
   "vivo",
   "lannister",
@@ -112,7 +100,6 @@ const jaime = new Luchador(
 const daenerys = new Luchador(
   "daenerys targaryen",
   32,
-  "game of Thrones",
   "luchador",
   "vivo",
   "targaryen",
@@ -123,7 +110,6 @@ const daenerys = new Luchador(
 const tyrion = new Asesor(
   "tyrion lannister",
   54,
-  "game of Thrones",
   "asesor",
   "vivo",
   "Lannister",
@@ -133,14 +119,14 @@ const tyrion = new Asesor(
 const bronn = new Escudero(
   "bronn",
   43,
-  "game of Thrones",
   "escudero",
   "vivo",
   "Tarradellas",
   "jaime",
-  10
+  73
 );
 
+console.log(bronn);
 jaime.morir("Muerto");
 tyrion.morir("Muerto");
 // Mirar si esta muerto
