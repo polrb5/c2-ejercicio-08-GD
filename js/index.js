@@ -6,21 +6,21 @@ class Personaje {
   tipo;
   serie = "Game of Thrones";
   edad;
-  estado;
+  vivo = true;
   familia;
 
-  constructor(nombre, anyos, tipo, estado, familia) {
+  constructor(nombre, anyos, tipo, vivo, familia) {
     this.nombre = nombre;
     this.edad = anyos;
     this.tipo = tipo;
-    this.estado = estado;
+    this.vivo = vivo;
     this.familia = familia;
   }
   comunicar() {
     return this.mensaje;
   }
-  morir(estado) {
-    this.estado = estado;
+  morir(vivo) {
+    this.vivo = vivo;
   }
 }
 
@@ -28,8 +28,8 @@ class Rey extends Personaje {
   anyosReinado;
   mensaje;
 
-  constructor(nombre, anyos, tipo, estado, familia, anyosReinado) {
-    super(nombre, anyos, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, vivo, familia, anyosReinado) {
+    super(nombre, anyos, tipo, vivo, familia);
     this.anyosReinado = anyosReinado;
     this.mensaje = "Vais a morir todos";
   }
@@ -39,8 +39,8 @@ class Luchador extends Personaje {
   destreza;
   mensaje;
 
-  constructor(nombre, anyos, tipo, estado, familia, armaQueUsa, destreza) {
-    super(nombre, anyos, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, vivo, familia, armaQueUsa, destreza) {
+    super(nombre, anyos, tipo, vivo, familia);
     this.armaQueUsa = armaQueUsa;
     this.destreza = Math.min(10, Math.max(0, destreza));
     this.mensaje = "Primero pego y luego pregunto";
@@ -51,8 +51,8 @@ class Asesor extends Personaje {
   personajeAsesorado;
   mensaje;
 
-  constructor(nombre, anyos, tipo, estado, familia, personajeAsesorado) {
-    super(nombre, anyos, tipo, estado, familia);
+  constructor(nombre, anyos, tipo, vivo, familia, personajeAsesorado) {
+    super(nombre, anyos, tipo, vivo, familia);
     this.personajeAsesorado = personajeAsesorado;
     this.mensaje = "No sé por qué, pero creo que voy a morir pronto";
   }
@@ -66,32 +66,25 @@ class Escudero extends Personaje {
     nombre,
     anyos,
     tipo,
-    estado,
+    vivo,
     familia,
     personajeServido,
     gradoPelotismo
   ) {
-    super(nombre, anyos, tipo, estado, familia);
+    super(nombre, anyos, tipo, vivo, familia);
     this.personajeServido = personajeServido;
     this.gradoPelotismo = Math.min(10, Math.max(0, gradoPelotismo));
     this.mensaje = "Soy un loser";
   }
 }
 
-const joffrey = new Rey(
-  "joffrey baratheon",
-  34,
-  "rey",
-  "vivo",
-  "lannister",
-  700
-);
+const joffrey = new Rey("joffrey baratheon", 34, "rey", true, "lannister", 700);
 
 const jaime = new Luchador(
   "jaime lannister",
   83,
   "luchador",
-  "vivo",
+  true,
   "lannister",
   "pintalabios-pistola",
   8
@@ -101,7 +94,7 @@ const daenerys = new Luchador(
   "daenerys targaryen",
   32,
   "luchador",
-  "vivo",
+  true,
   "targaryen",
   "pistola armónica",
   6
@@ -111,7 +104,7 @@ const tyrion = new Asesor(
   "tyrion lannister",
   54,
   "asesor",
-  "vivo",
+  true,
   "Lannister",
   "daenerys"
 );
@@ -120,17 +113,17 @@ const bronn = new Escudero(
   "bronn",
   43,
   "escudero",
-  "vivo",
+  true,
   "Tarradellas",
   "jaime",
   73
 );
 
 console.log(bronn);
-jaime.morir("Muerto");
-tyrion.morir("Muerto");
+jaime.morir(false);
+tyrion.morir(false);
 // Mirar si esta muerto
-/* console.log(jaime.estado); */
+/* console.log(jaime.vivo); */
 
 console.log(joffrey.comunicar());
 
