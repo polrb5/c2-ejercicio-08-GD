@@ -17,7 +17,7 @@ class Personaje {
     this.familia = familia;
   }
   comunicar() {
-    return this.mensaje;
+    return `${this.nombre} dice: `;
   }
   morir(vivo) {
     this.vivo = vivo;
@@ -33,28 +33,32 @@ class Rey extends Personaje {
     this.anyosReinado = anyosReinado;
     this.mensaje = "Vais a morir todos";
   }
+  comunicar() {
+    return `${super.comunicar()}Vais a morir todos`;
+  }
 }
 class Luchador extends Personaje {
   armaQueUsa;
   destreza;
-  mensaje;
-
   constructor(nombre, anyos, tipo, vivo, familia, armaQueUsa, destreza) {
     super(nombre, anyos, tipo, vivo, familia);
     this.armaQueUsa = armaQueUsa;
     this.destreza = Math.min(10, Math.max(0, destreza));
-    this.mensaje = "Primero pego y luego pregunto";
+  }
+  comunicar() {
+    return `${super.comunicar()}Primero pego y luego pregunto`;
   }
 }
 
 class Asesor extends Personaje {
   personajeAsesorado;
-  mensaje;
 
   constructor(nombre, anyos, tipo, vivo, familia, personajeAsesorado) {
     super(nombre, anyos, tipo, vivo, familia);
     this.personajeAsesorado = personajeAsesorado;
-    this.mensaje = "No sé por qué, pero creo que voy a morir pronto";
+  }
+  comunicar() {
+    return `${super.comunicar()}No sé por qué, pero creo que voy a morir pronto`;
   }
 }
 class Escudero extends Personaje {
@@ -74,7 +78,9 @@ class Escudero extends Personaje {
     super(nombre, anyos, tipo, vivo, familia);
     this.personajeServido = personajeServido;
     this.gradoPelotismo = Math.min(10, Math.max(0, gradoPelotismo));
-    this.mensaje = "Soy un loser";
+  }
+  comunicar() {
+    return `${super.comunicar()}Soy un loser`;
   }
 }
 
@@ -124,8 +130,6 @@ jaime.morir(false);
 tyrion.morir(false);
 // Mirar si esta muerto
 /* console.log(jaime.vivo); */
-
-console.log(joffrey.comunicar());
 
 // Array de personajes
 const personajes = [joffrey, jaime, daenerys, tyrion, bronn];
