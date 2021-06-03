@@ -106,7 +106,7 @@ const tyrion = new Asesor(
   "asesor",
   true,
   "Lannister",
-  "daenerys"
+  daenerys
 );
 
 const bronn = new Escudero(
@@ -115,7 +115,7 @@ const bronn = new Escudero(
   "escudero",
   true,
   "Tarradellas",
-  "jaime",
+  jaime,
   73
 );
 
